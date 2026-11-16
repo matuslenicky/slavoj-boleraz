@@ -78,13 +78,16 @@ def blocks(root, page_url):
             return
         for ch in el: walk(ch)
     walk(root)
-    # omrvinky („Úvodná stránka > …“) a nadpis stránky preč, opakované odseky preč
+    # omrvinky („Úvodná stránka > …“) preč; opakované obrázky a tabuľky preč. Odseky sa nechávajú všetky:
+    # riadky zápisov kôl („žk: ---“, „góly: ---“) sa medzi kolami opakujú a sú to platné údaje.
     res, seen = [], set()
     for b in out:
         if b['type'] == 'p' and b['text'].startswith('Úvodná stránka'): continue
-        key = json.dumps(b, ensure_ascii=False)
-        if key in seen: continue
-        seen.add(key); res.append(b)
+        if b['type'] != 'p':
+            key = json.dumps(b, ensure_ascii=False)
+            if key in seen: continue
+            seen.add(key)
+        res.append(b)
     return res
 
 pages = []

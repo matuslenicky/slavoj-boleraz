@@ -15,7 +15,7 @@ for f in sorted(SRC.glob('*.jpg')):
         print('nečitateľný', f.name, e); continue
     ws = []
     for w in (480, 1200):
-        if ws and w > im.width: break
+        if ws and ws[-1] >= im.width: break      # menší originál (spravodaj 877 px) -> ešte verzia v plnej šírke pre prehliadač
         c = im.copy(); c.thumbnail((w, 100000), Image.LANCZOS)
         c.save(OUT / f'{f.stem}-{c.width}.webp', 'WEBP', quality=80, method=6); ws.append(c.width)
     res[f.stem] = {'widths': ws, 'w': im.width, 'h': im.height}

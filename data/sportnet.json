@@ -2,7 +2,7 @@
  "source": "Sportnet / Futbalnet",
  "appSpace": "tj-slavoj-boleraz.futbalnet.sk",
  "season": "2026/2027",
- "updated": "2026-11-16T13:09:56.461Z",
+ "updated": "2026-11-16T14:41:36.698Z",
  "teams": [
   {
    "slug": "a-muzstvo",
@@ -11230,7 +11230,7 @@
    "competition": "Slovnaft Cup",
    "round": "4.kolo",
    "played": true,
-   "score": "1:1",
+   "score": "2:1",
    "goals": [
     {
      "min": "69",

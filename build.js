@@ -500,7 +500,7 @@ const archFig = (R) => (file, alt = '') => {
   const w = f.widths.at(-1);
   return `<figure class="arch-fig"><img src="${R}img/archiv/${file}-${w}.webp" srcset="${f.widths.map((x) => `${R}img/archiv/${file}-${x}.webp ${x}w`).join(', ')}" sizes="(min-width: 900px) 720px, 100vw" alt="${esc(alt)}" width="${w}" height="${Math.round(w * f.h / f.w)}" loading="lazy" decoding="async"></figure>`;
 };
-const archBlocks = (blocks, R) => renderBlocks(blocks, { esc, R, img: archFig(R) });
+const archBlocks = (blocks, R, h = 2) => renderBlocks(blocks, { esc, R, img: archFig(R), h });
 const archSrc = (R) => `<p class="note">Zdroj: starý web klubu <a href="${arch.source}/" rel="noopener">slavojboleraz.webnode.sk</a>, prevzaté ${dFull(arch.fetched)} bez úprav údajov.</p>`;
 const menByKey = Object.fromEntries(arch.menSeasons.map((s) => [s.key, s]));
 const titles = arch.placements.filter((p) => p.first);
@@ -514,8 +514,8 @@ if (arch.placements.length) {
   ${archNav(R, 'archiv/')}
   <div class="arch-top">
     <div>
-      <h2 class="title">Muži v sezónach</h2>
-      <div class="tbl-wrap"><table class="tbl tbl--seasons"><thead><tr><th scope="col" class="tl">Sezóna</th><th scope="col" class="tl">Súťaž</th><th scope="col">Poradie</th></tr></thead>
+      <h2 class="title" id="sez-h">Muži v sezónach</h2>
+      <div class="tbl-wrap"><table class="tbl tbl--seasons" aria-labelledby="sez-h"><thead><tr><th scope="col" class="tl">Sezóna</th><th scope="col" class="tl">Súťaž</th><th scope="col">Poradie</th></tr></thead>
       <tbody>${arch.placements.map((p) => `<tr${p.first ? ' class="our"' : ''}><th scope="row" class="tl">${menByKey[p.key] ? `<a href="${R}archiv/muzi/${p.key}/">${esc(p.label)}</a>` : esc(p.label)}</th><td class="tl">${esc(p.league)}</td><td class="nw">${esc(p.place)}</td></tr>`).join('')}</tbody></table></div>
       ${archSrc(R)}
     </div>
@@ -549,10 +549,10 @@ if (arch.stats.length) {
     body: (R) => `${head('Strelci od roku 1972', esc(club.statistikyRozsah || ''), R, [['archiv/', 'Archív'], [null, 'Strelci']])}
 <section class="sec sec--first"><div class="wrap">
   ${archNav(R, 'archiv/strelci/')}
-  <label class="find" data-find hidden><span>Hľadať hráča</span><input type="search" data-find-input aria-controls="stat-t" placeholder="napr. Daniš" autocomplete="off"></label>
-  <div class="tbl-wrap"><table class="tbl tbl--stats" id="stat-t"><thead><tr><th scope="col">#</th><th scope="col" class="tl">Hráč</th><th scope="col">Góly</th><th scope="col" class="hm">„A“</th><th scope="col" class="hm">„B“</th><th scope="col">Štarty</th><th scope="col" class="hm">„A“</th><th scope="col" class="hm">„B“</th><th scope="col" class="tl hl">Prvý štart</th><th scope="col" class="tl hl">Prvý gól</th></tr></thead>
+  <label class="find" data-find hidden><span>Hľadať hráča</span><input type="search" data-find-input aria-controls="stat-t" placeholder="napr. Daniš" autocomplete="off" enterkeyhint="search"></label>
+  <div class="tbl-wrap"><table class="tbl tbl--stats" id="stat-t"><caption class="sr">Góly a štarty hráčov od roku 1972</caption><thead><tr><th scope="col">#</th><th scope="col" class="tl">Hráč</th><th scope="col">Góly</th><th scope="col" class="hm">„A“</th><th scope="col" class="hm">„B“</th><th scope="col">Štarty</th><th scope="col" class="hm">„A“</th><th scope="col" class="hm">„B“</th><th scope="col" class="tl hl">Prvý štart</th><th scope="col" class="tl hl">Prvý gól</th></tr></thead>
   <tbody>${arch.stats.map((s) => `<tr data-name="${esc(norm(s.name))}"><td class="pos">${s.n}</td><th scope="row" class="tl">${esc(s.name)}</th><td class="pts">${s.goals}</td><td class="hm">${s.goalsA}</td><td class="hm">${s.goalsB}</td><td>${s.apps}</td><td class="hm">${s.appsA}</td><td class="hm">${s.appsB}</td><td class="tl hl">${esc(s.firstApp)}</td><td class="tl hl">${esc(s.firstGoal)}</td></tr>`).join('')}</tbody></table></div>
-  <p class="empty" data-find-empty hidden>Hráč s takým menom v štatistike nie je.</p>
+  <p class="empty find-st" data-find-empty role="status"></p>
   ${archSrc(R)}
 </div></section>`,
   });
@@ -564,7 +564,7 @@ if (arch.youth.length) {
 <section class="sec sec--first"><div class="wrap">
   ${archNav(R, 'archiv/mladez/')}
   ${arch.youth.map((y) => `<section class="arch-y" aria-labelledby="y-${y.slug}"><h2 class="title title--s" id="y-${y.slug}">${esc(y.name)}</h2>
-    ${y.intro.length ? `<div class="arch-season">${archBlocks(y.intro, R)}</div>` : ''}
+    ${y.intro.length ? `<div class="arch-season">${archBlocks(y.intro, R, 3)}</div>` : ''}
     ${y.seasons.length ? `<p class="arch-links">${y.seasons.map((s) => `<a class="chip" href="${R}archiv/mladez/${y.slug}-${s.key}/">${esc(s.label)}</a>`).join('')}</p>` : ''}
   </section>`).join('')}
   ${archSrc(R)}
