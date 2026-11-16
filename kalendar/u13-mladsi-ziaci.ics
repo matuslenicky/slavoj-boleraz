@@ -1,0 +1,178 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Slavoj Boleraz//Zapasy//SK
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Slavoj Boleráz – U13 mladší žiaci
+X-WR-TIMEZONE:Europe/Bratislava
+BEGIN:VTIMEZONE
+TZID:Europe/Bratislava
+BEGIN:DAYLIGHT
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0200
+TZNAME:CEST
+DTSTART:19700329T020000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:+0200
+TZOFFSETTO:+0100
+TZNAME:CET
+DTSTART:19701025T030000
+RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:zapas-6a4e4cc0d14e91f303bd0f95@slavoj-boleraz.sportnet
+DTSTAMP:20261116T140040Z
+DTSTART;TZID=Europe/Bratislava:20260829T100000
+DURATION:PT2H
+SUMMARY:U13: Slavoj Boleráz U13 – SFC Kopánka B 2:10
+DESCRIPTION:IV. liga mladších žiakov ObFZ Trnava\, 1. kolo
+LOCATION:Slavoj Boleráz
+END:VEVENT
+BEGIN:VEVENT
+UID:zapas-6a4e4cbad14e91f303bcfd2e@slavoj-boleraz.sportnet
+DTSTAMP:20261116T140040Z
+DTSTART;TZID=Europe/Bratislava:20260905T133000
+DURATION:PT2H
+SUMMARY:U13: TJ Družstevník Dechtice – Slavoj Boleráz U13 1:0
+DESCRIPTION:IV. liga mladších žiakov ObFZ Trnava\, 2. kolo
+LOCATION:ŠK Dobrá Voda
+END:VEVENT
+BEGIN:VEVENT
+UID:zapas-6a4e4cbad14e91f303bcfdb6@slavoj-boleraz.sportnet
+DTSTAMP:20261116T140040Z
+DTSTART;TZID=Europe/Bratislava:20260912T100000
+DURATION:PT2H
+SUMMARY:U13: Slavoj Boleráz U13 – OŠK Dolná Krupá 0:1
+DESCRIPTION:IV. liga mladších žiakov ObFZ Trnava\, 3. kolo
+LOCATION:TJ ELASTIK BOHDANOVCE
+END:VEVENT
+BEGIN:VEVENT
+UID:zapas-6a4e4cbad14e91f303bcfe5f@slavoj-boleraz.sportnet
+DTSTAMP:20261116T140040Z
+DTSTART;TZID=Europe/Bratislava:20260919T103000
+DURATION:PT2H
+SUMMARY:U13: ŠPORTOVÉ KLUBY BLAVA 1928 – Slavoj Boleráz U13 8:1
+DESCRIPTION:IV. liga mladších žiakov ObFZ Trnava\, 4. kolo
+LOCATION:ŠK Blava
+END:VEVENT
+BEGIN:VEVENT
+UID:zapas-6a4e4cbbd14e91f303bd012d@slavoj-boleraz.sportnet
+DTSTAMP:20261116T140040Z
+DTSTART;TZID=Europe/Bratislava:20260926T100000
+DURATION:PT2H
+SUMMARY:U13: Slavoj Boleráz U13 – TJ FC Kátlovce 1:8
+DESCRIPTION:IV. liga mladších žiakov ObFZ Trnava\, 5. kolo
+LOCATION:Slavoj Boleráz
+END:VEVENT
+BEGIN:VEVENT
+UID:zapas-6a4e4cbbd14e91f303bd008f@slavoj-boleraz.sportnet
+DTSTAMP:20261116T140040Z
+DTSTART;TZID=Europe/Bratislava:20261003T103000
+DURATION:PT2H
+SUMMARY:U13: TJ Iskra - Horné Orešany – Slavoj Boleráz U13 4:0
+DESCRIPTION:IV. liga mladších žiakov ObFZ Trnava\, 6. kolo
+LOCATION:TJ Iskra
+END:VEVENT
+BEGIN:VEVENT
+UID:zapas-6a4e4cbdd14e91f303bd04ad@slavoj-boleraz.sportnet
+DTSTAMP:20261116T140040Z
+DTSTART;TZID=Europe/Bratislava:20261010T100000
+DURATION:PT2H
+SUMMARY:U13: Slavoj Boleráz U13 – TJ Družstevník Zvončín 1:4
+DESCRIPTION:IV. liga mladších žiakov ObFZ Trnava\, 7. kolo
+LOCATION:TJ ELASTIK BOHDANOVCE
+END:VEVENT
+BEGIN:VEVENT
+UID:zapas-6a4e4d1bd14e91f303bdda03@slavoj-boleraz.sportnet
+DTSTAMP:20261116T140040Z
+DTSTART;TZID=Europe/Bratislava:20261017T103000
+DURATION:PT2H
+SUMMARY:U13: TJ Sokol Trstín – Slavoj Boleráz U13 3:5
+DESCRIPTION:IV. liga mladších žiakov ObFZ Trnava\, 8. kolo
+LOCATION:TJ Sokol Trstín
+END:VEVENT
+BEGIN:VEVENT
+UID:zapas-6a4e4cbdd14e91f303bd0536@slavoj-boleraz.sportnet
+DTSTAMP:20261116T140040Z
+DTSTART;TZID=Europe/Bratislava:20261024T100000
+DURATION:PT2H
+SUMMARY:U13: Slavoj Boleráz U13 – OŠK Smolenice 2:9
+DESCRIPTION:IV. liga mladších žiakov ObFZ Trnava\, 9. kolo
+LOCATION:Slavoj Boleráz
+END:VEVENT
+BEGIN:VEVENT
+UID:zapas-6a4e4cbdd14e91f303bd05a6@slavoj-boleraz.sportnet
+DTSTAMP:20261116T140040Z
+DTSTART;TZID=Europe/Bratislava:20270417T103000
+DURATION:PT2H
+SUMMARY:U13: SFC Kopánka B – Slavoj Boleráz U13
+DESCRIPTION:IV. liga mladších žiakov ObFZ Trnava\, 10. kolo
+END:VEVENT
+BEGIN:VEVENT
+UID:zapas-6a4e4cbed14e91f303bd0750@slavoj-boleraz.sportnet
+DTSTAMP:20261116T140040Z
+DTSTART;TZID=Europe/Bratislava:20270424T103000
+DURATION:PT2H
+SUMMARY:U13: Slavoj Boleráz U13 – TJ Družstevník Dechtice
+DESCRIPTION:IV. liga mladších žiakov ObFZ Trnava\, 11. kolo
+END:VEVENT
+BEGIN:VEVENT
+UID:zapas-6a4e4cbed14e91f303bd06ea@slavoj-boleraz.sportnet
+DTSTAMP:20261116T140040Z
+DTSTART;TZID=Europe/Bratislava:20270501T103000
+DURATION:PT2H
+SUMMARY:U13: OŠK Dolná Krupá – Slavoj Boleráz U13
+DESCRIPTION:IV. liga mladších žiakov ObFZ Trnava\, 12. kolo
+END:VEVENT
+BEGIN:VEVENT
+UID:zapas-6a4e4cc2d14e91f303bd1467@slavoj-boleraz.sportnet
+DTSTAMP:20261116T140040Z
+DTSTART;TZID=Europe/Bratislava:20270508T103000
+DURATION:PT2H
+SUMMARY:U13: Slavoj Boleráz U13 – ŠPORTOVÉ KLUBY BLAVA 1928
+DESCRIPTION:IV. liga mladších žiakov ObFZ Trnava\, 13. kolo
+END:VEVENT
+BEGIN:VEVENT
+UID:zapas-6a4e4cbfd14e91f303bd09f3@slavoj-boleraz.sportnet
+DTSTAMP:20261116T140040Z
+DTSTART;TZID=Europe/Bratislava:20270515T103000
+DURATION:PT2H
+SUMMARY:U13: TJ FC Kátlovce – Slavoj Boleráz U13
+DESCRIPTION:IV. liga mladších žiakov ObFZ Trnava\, 14. kolo
+END:VEVENT
+BEGIN:VEVENT
+UID:zapas-6a4e4cc1d14e91f303bd1240@slavoj-boleraz.sportnet
+DTSTAMP:20261116T140040Z
+DTSTART;TZID=Europe/Bratislava:20270522T103000
+DURATION:PT2H
+SUMMARY:U13: Slavoj Boleráz U13 – TJ Iskra - Horné Orešany
+DESCRIPTION:IV. liga mladších žiakov ObFZ Trnava\, 15. kolo
+END:VEVENT
+BEGIN:VEVENT
+UID:zapas-6a4e4cbfd14e91f303bd0b00@slavoj-boleraz.sportnet
+DTSTAMP:20261116T140040Z
+DTSTART;TZID=Europe/Bratislava:20270529T103000
+DURATION:PT2H
+SUMMARY:U13: TJ Družstevník Zvončín – Slavoj Boleráz U13
+DESCRIPTION:IV. liga mladších žiakov ObFZ Trnava\, 16. kolo
+END:VEVENT
+BEGIN:VEVENT
+UID:zapas-6a4e4cc3d14e91f303bd1569@slavoj-boleraz.sportnet
+DTSTAMP:20261116T140040Z
+DTSTART;TZID=Europe/Bratislava:20270605T103000
+DURATION:PT2H
+SUMMARY:U13: Slavoj Boleráz U13 – TJ Sokol Trstín
+DESCRIPTION:IV. liga mladších žiakov ObFZ Trnava\, 17. kolo
+END:VEVENT
+BEGIN:VEVENT
+UID:zapas-6a4e4cc0d14e91f303bd0d5b@slavoj-boleraz.sportnet
+DTSTAMP:20261116T140040Z
+DTSTART;TZID=Europe/Bratislava:20270612T103000
+DURATION:PT2H
+SUMMARY:U13: OŠK Smolenice – Slavoj Boleráz U13
+DESCRIPTION:IV. liga mladších žiakov ObFZ Trnava\, 18. kolo
+END:VEVENT
+END:VCALENDAR
