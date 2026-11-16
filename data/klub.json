@@ -4,7 +4,10 @@
   "kratky": "Slavoj Boleráz",
   "obec": "Boleráz",
   "zalozenie": 1928,
-  "adresa": ["Slavoj, Boleráz 458", "919 08 Boleráz"],
+  "adresa": [
+    "Slavoj, Boleráz 458",
+    "919 08 Boleráz"
+  ],
   "ico": "00688649",
   "ucet": "SK56 0900 0000 0000 4554 9128",
   "instagram": "https://www.instagram.com/slavojboleraz/",
@@ -13,35 +16,88 @@
   "staryWeb": "https://slavojboleraz.webnode.sk/",
   "sportnetUrl": "https://sportnet.sme.sk/futbalnet/k/tj-slavoj-boleraz/",
   "kontakty": [
-    { "funkcia": "Predseda klubu", "meno": "Ing. Ľubomír Krišica", "telefon": "0903 793 144" },
-    { "funkcia": "Tajomník klubu", "meno": "Juraj Královič st.", "telefon": "0908 770 988", "email": "tjslavojboleraz@gmail.com" }
+    {
+      "funkcia": "Predseda klubu",
+      "meno": "Ing. Ľubomír Krišica",
+      "telefon": "0903 793 144"
+    },
+    {
+      "funkcia": "Tajomník klubu",
+      "meno": "Juraj Královič st.",
+      "telefon": "0908 770 988",
+      "email": "tjslavojboleraz@gmail.com"
+    }
   ],
   "_kontakty": "starý web, stránka Kontakt; e-mail klubu aj zo Sportnetu",
   "vedenie": [
-    ["Predseda", "Ing. Ľubomír Krišica"],
-    ["Podpredseda", "Mgr. Pavol Kitta"],
-    ["Manažér klubu", "Roman Vavro"],
-    ["Tajomník", "Juraj Královič"],
-    ["Pokladník", "Jozef Demovič"],
-    ["Revízna komisia", "Jaroslav Cintavý, Miroslav Buček, Štefan Tanáč"],
-    ["Členovia výkonného výboru", "Vladimír Miklošovič, Emil Kitta, Marek Daniš"]
+    [
+      "Predseda",
+      "Ing. Ľubomír Krišica"
+    ],
+    [
+      "Podpredseda",
+      "Mgr. Pavol Kitta"
+    ],
+    [
+      "Manažér klubu",
+      "Roman Vavro"
+    ],
+    [
+      "Tajomník",
+      "Juraj Královič"
+    ],
+    [
+      "Pokladník",
+      "Jozef Demovič"
+    ],
+    [
+      "Revízna komisia",
+      "Jaroslav Cintavý, Miroslav Buček, Štefan Tanáč"
+    ],
+    [
+      "Členovia výkonného výboru",
+      "Vladimír Miklošovič, Emil Kitta, Marek Daniš"
+    ]
   ],
   "_vedenie": "web obce Boleráz, TJ Slavoj Boleráz – Vedenie klubu",
   "ihrisko": {
     "nazov": "Futbalové ihrisko TJ Slavoj Boleráz",
     "adresa": "Boleráz 458, 919 08 Boleráz",
-    "geo": [48.4636714, 17.4907556],
-    "_zdroj": "Sportnet (ihrisko „Slavoj Boleráz“); vybavenie z textu histórie: bariérový múr, zábradlie okolo hracej plochy, lavičky, detské a basketbalové ihrisko"
+    "geo": [
+      48.4636714,
+      17.4907556
+    ],
+    "_zdroj": "Sportnet (ihrisko „Slavoj Boleráz“); vybavenie z textu histórie: bariérový múr, zábradlie okolo hracej plochy, lavičky, detské a basketbalové ihrisko",
+    "kapacita": "Štadión má 483 miest na sedenie, všetky v krytých sektoroch",
+    "_kapacita": "starý web klubu, stránka Štadión (sektory A–G: 49, 98, 49, 49, 49, 49, 91, 49 krytých miest)"
   },
   "historiaZdroj": "Text histórie klubu zo stránky obce Boleráz a zo starého webu klubu (História).",
   "historiaUvod": "Za rok vzniku TJ Slavoj Boleráz sa považuje rok 1928, v roku 2018 klub oslávil 90. výročie založenia. Úradne vznikol športový klub 14. júla 1931 a jeho stanovy schválil Krajinský úrad v Bratislave 28. novembra 1932.",
   "historiaMilniky": [
-    { "rok": "1927", "text": "Akcionári škrobárne si v areáli závodu zriadili tenisové ihrisko, približne vtedy začali technickí pracovníci hrať futbal." },
-    { "rok": "1928", "text": "Futbal sa hrá na provizórnom ihrisku pri kostole. Zopár chlapcov sa zložilo na loptu a vzniklo prvé mužstvo." },
-    { "rok": "1929 – 30", "text": "Z peňazí z podomových zbierok si hráči kúpili zeleno-biele dresy." },
-    { "rok": "1932", "text": "V tridsiatich stretnutiach 28 výhier." },
-    { "rok": "1980 – 84", "text": "Pod trénerom Jozefom Frankom postup z III. triedy do I. A triedy." },
-    { "rok": "2018", "text": "90. výročie založenia klubu." }
+    {
+      "rok": "1927",
+      "text": "Akcionári škrobárne si v areáli závodu zriadili tenisové ihrisko, približne vtedy začali technickí pracovníci hrať futbal."
+    },
+    {
+      "rok": "1928",
+      "text": "Futbal sa hrá na provizórnom ihrisku pri kostole. Zopár chlapcov sa zložilo na loptu a vzniklo prvé mužstvo."
+    },
+    {
+      "rok": "1929 – 30",
+      "text": "Z peňazí z podomových zbierok si hráči kúpili zeleno-biele dresy."
+    },
+    {
+      "rok": "1932",
+      "text": "V tridsiatich stretnutiach 28 výhier."
+    },
+    {
+      "rok": "1980 – 84",
+      "text": "Pod trénerom Jozefom Frankom postup z III. triedy do I. A triedy."
+    },
+    {
+      "rok": "2018",
+      "text": "90. výročie založenia klubu."
+    }
   ],
   "historiaOdseky": [
     "Počiatky športového života v Boleráze siahajú do roku 1927, keď si akcionári škrobárne v areáli závodu zriadili pre chvíle relaxácie tenisové ihrisko. Približne v tom období začali technickí pracovníci hrať futbal. V roku 1928 sa futbal hrával už aj na provizórnom ihrisku pri kostole. Ferdinand Loskot, zámočnícky učeň, Ján Banci a Jozef Hluch – pekárski učni mali v tom čase bicykle a na nich navštevovali zápasy v Trnave. Zopár chlapcov sa zložilo na loptu a tak vzniklo prvé mužstvo.",
@@ -59,5 +115,7 @@
     "Prípravka-U9-ObFZ TT": "Prípravka U9 ObFZ Trnava",
     "Slovnaft Cup": "Slovnaft Cup",
     "BESTRENT CUP  ObFZ Trnava": "Pohár ObFZ Trnava"
-  }
+  },
+  "statistikyRozsah": "Zmapované od 6. 8. 1972 (Boleráz „A“ – Borová 11:0) do 16. 6. 2018 (Boleráz „A“ – Hlohovec 5:2), pri „B“ mužstve od 4. 8. 2012 (Vlčkovce – Boleráz „B“ 1:1) do 27. 11. 2016 (Boleráz „B“ – Ružindol 0:0).",
+  "_statistikyRozsah": "starý web klubu, stránka Štatistiky"
 }

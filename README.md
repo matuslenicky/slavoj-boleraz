@@ -11,6 +11,7 @@ Vzhľad vychádza z Instagramu klubu [@slavojboleraz](https://www.instagram.com/
 - Zápasy, výsledky, strelci, karty, zostavy dospelých, tabuľky a súpisky zo Sportnetu (`scripts/sportnet.mjs` → `data/sportnet.json`). Vek hráčov sa neukladá, zostavy len pri dospelých.
 - `data/klub.json`: kontakty zo starého webu slavojboleraz.webnode.sk, IČO a účet zo Sportnetu, vedenie klubu a história z webu obce Boleráz a starého webu.
 - Fotky a texty príspevkov z Instagramu klubu (`media/ig-posts.json` zbiera prehliadač bez prihlásenia, `scripts/ig-download.mjs` stiahne fotky do `media/`, `scripts/photos.py` ich spracuje do `src/img/foto` a `data/foto-out.json`; výber v `data/foto.json`). Album z osemfinále Slovnaft Cupu: foto @world._.through._.lenses.
+- Archív zo starého webu (umiestnenia mužov od 1957/58, konečné tabuľky, zápisy kôl 2008–2012, mládež, Slavoj Cup, večná štatistika strelcov od 1972, spravodaje): `python -I scripts/import-archiv.py` → `data/archiv.json`, obrázky `python -I scripts/archiv-img.py`; zoradenie v `archiv.mjs` – konečné tabuľky podľa sezóny v ich nadpise, ostatné tabuľky len ak sú na jedinej stránke (starý web má tabuľky skopírované na viac sezón).
 - Erby klubov zo Sportnetu (`scripts/logos.py`, priehľadné pozadie `scripts/crest.py`).
 - Písmo Sofia Sans a Sofia Sans Extra Condensed, licencia SIL Open Font License 1.1.
 

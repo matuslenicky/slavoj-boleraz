@@ -6,6 +6,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
+import { organize, renderBlocks, YOUTH } from './archiv.mjs';
 
 const ROOT = path.dirname(fileURLToPath(import.meta.url));
 const SRC = path.join(ROOT, 'src');
@@ -15,6 +16,8 @@ const config = JSON.parse(fs.readFileSync(path.join(ROOT, 'config.json'), 'utf8'
 const club = rd('klub.json');
 const sn = rd('sportnet.json');
 const foto = rd('foto-out.json', { albums: [], named: {}, cards: [], posts: [], reels: [] });
+const arch = organize(rd('archiv.json', { pages: [] })); // archív zo starého webu (scripts/import-archiv.py)
+const archImg = rd('archiv-img.json', {});
 const SPACE = config.sportnet.appSpace;
 
 // ---- pomocné -------------------------------------------------------------------------------------
@@ -135,7 +138,7 @@ const CONNECT = ["'self'", ...(config.supabase?.url ? [new URL(config.supabase.u
 const CSP = ["default-src 'none'", `script-src 'self' ${sha256(HEAD_JS)}`, "style-src 'self'", "img-src 'self' data:", "font-src 'self'", `connect-src ${CONNECT.join(' ')}`, "base-uri 'none'", "form-action 'none'", "object-src 'none'"].join('; ');
 
 // navigácia: na telefóne spodná lišta ako v aplikácii (päť položiek), na počítači horná lišta
-const NAV = [['', 'Úvod', 'home'], ['zapasy/', 'Zápasy', 'ball'], ['tabulka/', 'Tabuľka', 'table'], ['timy/', 'Tímy', 'shirt'], ['galeria/', 'Galéria', null], ['klub/', 'Klub', 'shield'], ['kontakt/', 'Kontakt', null]];
+const NAV = [['', 'Úvod', 'home'], ['zapasy/', 'Zápasy', 'ball'], ['tabulka/', 'Tabuľka', 'table'], ['timy/', 'Tímy', 'shirt'], ['galeria/', 'Galéria', null], ['archiv/', 'Archív', null], ['klub/', 'Klub', 'shield'], ['kontakt/', 'Kontakt', null]];
 const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${club.ihrisko.geo.join(',')}`;
 
 function layout({ route, title, desc, body, active }) {
@@ -186,7 +189,7 @@ ${body}
   <div class="wrap foot-in">
     <div class="foot-club"><img src="${R}img/erb-t-192.webp" alt="" width="72" height="69" loading="lazy"><div><p class="foot-name">${esc(club.nazov)}</p><p>Futbal v Boleráze od roku ${club.zalozenie}</p></div></div>
     <div><h2 class="foot-h">Kontakt</h2><p>${club.kontakty.map((k) => `${esc(k.funkcia)}: ${esc(k.meno)}<br><a href="${tel(k.telefon)}">${esc(k.telefon)}</a>${k.email ? `<br><a href="mailto:${k.email}">${esc(k.email)}</a>` : ''}`).join('</p><p>')}</p></div>
-    <div><h2 class="foot-h">Ihrisko</h2><p>${esc(club.ihrisko.adresa)}<br><a href="${mapsUrl}" rel="noopener">Navigovať</a></p><h2 class="foot-h">Viac</h2><p><a href="${R}galeria/">Galéria</a><br><a href="${R}kontakt/">Kontakt a fakturačné údaje</a></p></div>
+    <div><h2 class="foot-h">Ihrisko</h2><p>${esc(club.ihrisko.adresa)}<br><a href="${mapsUrl}" rel="noopener">Navigovať</a></p><h2 class="foot-h">Viac</h2><p><a href="${R}galeria/">Galéria</a><br><a href="${R}archiv/">Archív sezón od roku 1957</a><br><a href="${R}kontakt/">Kontakt a fakturačné údaje</a></p></div>
     <div><h2 class="foot-h">Sleduj nás</h2><p><a class="foot-ig" href="${club.instagram}" rel="noopener">${I.ig}@${club.instagramHandle}</a></p><p class="foot-small">Výsledky, tabuľky a súpisky sa dopĺňajú zo Sportnetu, naposledy ${dFull(sn.updated.slice(0, 10))}.</p></div>
   </div>
   <div class="foot-bar"><div class="wrap"><span>© ${new Date().getFullYear()} ${esc(club.nazov)}</span><a href="${R}ochrana-sukromia/">Ochrana súkromia</a>${config.adminDemo ? `<a href="${R}admin/">Administrácia (ukážka)</a>` : ''}</div></div>
@@ -326,7 +329,7 @@ ${foto.posts.length ? `<section class="sec sec--navy" aria-labelledby="ig-h"><di
     <h2 class="title" id="hist-h">Od roku ${club.zalozenie}</h2>
     <p>${esc(club.historiaOdseky[0].split('. ').slice(2, 5).join('. '))}.</p>
     <ol class="miles">${club.historiaMilniky.slice(0, 4).map((h) => `<li><b>${esc(h.rok)}</b><span>${esc(h.text)}</span></li>`).join('')}</ol>
-    <p><a class="btn btn--navy" href="${R}klub/">História klubu</a></p>
+    <p class="btns"><a class="btn btn--navy" href="${R}klub/">História klubu</a><a class="btn btn--ghost" href="${R}archiv/">Archív sezón</a></p>
   </div>
 </div></section>`;
   },
@@ -466,6 +469,7 @@ add('klub/', {
   <aside class="klub-side">
     <img class="klub-crest" src="${R}img/erb-t-400.webp" alt="Erb TJ Slavoj Boleráz" width="200" height="191" loading="lazy">
     <ol class="miles miles--v">${club.historiaMilniky.map((h) => `<li><b>${esc(h.rok)}</b><span>${esc(h.text)}</span></li>`).join('')}</ol>
+    <p><a class="btn btn--navy" href="${R}archiv/">Archív sezón od roku 1957</a></p>
   </aside>
 </div></section>
 <section class="sec sec--navy" aria-labelledby="ved-h"><div class="wrap">
@@ -474,7 +478,7 @@ add('klub/', {
   <p class="note note--light">Zdroj: web obce Boleráz. Tréneri a vedúci tímov sú na stránkach <a href="${R}timy/">tímov</a>.</p>
 </div></section>
 <section class="sec" aria-labelledby="ih-h"><div class="wrap two">
-  <div><h2 class="title" id="ih-h">Ihrisko</h2><p><b>${esc(club.ihrisko.nazov)}</b><br>${esc(club.ihrisko.adresa)}</p><p>V osemdesiatych rokoch pribudol bariérový múr, zábradlie okolo hracej plochy, lavičky a garáž pre autobus, areál dopĺňa detské a basketbalové ihrisko.</p><p class="btns"><a class="btn btn--navy" href="${mapsUrl}" rel="noopener">${I.route}Navigovať</a></p></div>
+  <div><h2 class="title" id="ih-h">Ihrisko</h2><p><b>${esc(club.ihrisko.nazov)}</b><br>${esc(club.ihrisko.adresa)}</p><p>${club.ihrisko.kapacita ? `${esc(club.ihrisko.kapacita)}. ` : ''}V osemdesiatych rokoch pribudol bariérový múr, zábradlie okolo hracej plochy, lavičky a garáž pre autobus, areál dopĺňa detské a basketbalové ihrisko.</p><p class="btns"><a class="btn btn--navy" href="${mapsUrl}" rel="noopener">${I.route}Navigovať</a></p></div>
   <div>${photo('tribuna', R, { cls: 'round-img', sizes: '(min-width: 900px) 45vw, 100vw' })}</div>
 </div></section>`,
 });
@@ -489,6 +493,109 @@ add('kontakt/', {
 <div class="wrap"><dl class="facts facts--wide"><div><dt>Adresa klubu</dt><dd>${club.adresa.map(esc).join(', ')}</dd></div><div><dt>IČO</dt><dd>${esc(club.ico)}</dd></div><div><dt>Bankový účet</dt><dd class="nw">${esc(club.ucet)}</dd></div></dl>
 <p class="note">Kontakty zo starého webu klubu, IČO a účet zo Sportnetu.</p></div></section>`,
 });
+
+// ---- archív zo starého webu --------------------------------------------------------------------------
+const archFig = (R) => (file, alt = '') => {
+  const f = archImg[file]; if (!f) return '';
+  const w = f.widths.at(-1);
+  return `<figure class="arch-fig"><img src="${R}img/archiv/${file}-${w}.webp" srcset="${f.widths.map((x) => `${R}img/archiv/${file}-${x}.webp ${x}w`).join(', ')}" sizes="(min-width: 900px) 720px, 100vw" alt="${esc(alt)}" width="${w}" height="${Math.round(w * f.h / f.w)}" loading="lazy" decoding="async"></figure>`;
+};
+const archBlocks = (blocks, R) => renderBlocks(blocks, { esc, R, img: archFig(R) });
+const archSrc = (R) => `<p class="note">Zdroj: starý web klubu <a href="${arch.source}/" rel="noopener">slavojboleraz.webnode.sk</a>, prevzaté ${dFull(arch.fetched)} bez úprav údajov.</p>`;
+const menByKey = Object.fromEntries(arch.menSeasons.map((s) => [s.key, s]));
+const titles = arch.placements.filter((p) => p.first);
+const archNav = (R, cur) => `<nav class="chips chips--links" aria-label="Archív">${[['archiv/', 'Muži'], ['archiv/strelci/', 'Strelci od 1972'], ['archiv/mladez/', 'Mládež'], ['archiv/slavoj-cup/', 'Slavoj Cup']].map(([u, t]) => `<a class="chip"${cur === u ? ' aria-current="page"' : ''} href="${R}${u}">${t}</a>`).join('')}</nav>`;
+
+if (arch.placements.length) {
+  add('archiv/', {
+    title: 'Archív', active: 'archiv/', desc: `Archív TJ Slavoj Boleráz: umiestnenia mužov od sezóny 1957/58, konečné tabuľky, strelci a mládež.`,
+    body: (R) => `${head('Archív', `Umiestnenia, tabuľky a zápisy Slavoja od sezóny 1957/58, prenesené zo starého webu klubu.`, R, [[null, 'Archív']])}
+<section class="sec sec--first"><div class="wrap">
+  ${archNav(R, 'archiv/')}
+  <div class="arch-top">
+    <div>
+      <h2 class="title">Muži v sezónach</h2>
+      <div class="tbl-wrap"><table class="tbl tbl--seasons"><thead><tr><th scope="col" class="tl">Sezóna</th><th scope="col" class="tl">Súťaž</th><th scope="col">Poradie</th></tr></thead>
+      <tbody>${arch.placements.map((p) => `<tr${p.first ? ' class="our"' : ''}><th scope="row" class="tl">${menByKey[p.key] ? `<a href="${R}archiv/muzi/${p.key}/">${esc(p.label)}</a>` : esc(p.label)}</th><td class="tl">${esc(p.league)}</td><td class="nw">${esc(p.place)}</td></tr>`).join('')}</tbody></table></div>
+      ${archSrc(R)}
+    </div>
+    <aside class="arch-side">
+      <div class="arch-titles"><p class="at-n">${titles.length}×</p><p class="at-l">prvé miesto v súťaži</p><p class="at-y">${titles.map((t) => esc(t.label)).join(', ')}</p></div>
+      ${arch.stats.length ? `<h2 class="title title--s">Najviac gólov</h2><ol class="scorers">${arch.stats.slice(0, 8).map((s) => `<li><span class="sc-n">${s.n}</span><span class="sc-name">${esc(s.name)}</span><b>${s.goals}</b></li>`).join('')}</ol><p><a class="more" href="${R}archiv/strelci/">Všetkých ${arch.stats.length} hráčov od roku 1972</a></p>` : ''}
+    </aside>
+  </div>
+</div></section>
+${arch.bulletins.length ? `<section class="sec sec--ice" aria-labelledby="spr-h"><div class="wrap"><h2 class="title" id="spr-h">Bolerázsky spravodaj</h2><p class="note">Ukážky športových spravodajov zo starého webu.</p><ul class="gal gal--tall" data-gallery>${arch.bulletins.map((b) => { const f = archImg[b.file]; return f ? `<li><a href="${R}img/archiv/${b.file}-${f.widths.at(-1)}.webp" data-lb><img src="${R}img/archiv/${b.file}-${f.widths[0]}.webp" alt="${esc(b.title)}" width="${f.widths[0]}" height="${Math.round(f.widths[0] * f.h / f.w)}" loading="lazy" decoding="async"></a></li>` : ''; }).join('')}</ul></div></section>` : ''}`,
+  });
+  for (const s of arch.menSeasons) {
+    add(`archiv/muzi/${s.key}/`, {
+      title: `Muži ${s.label}`, active: 'archiv/', desc: `TJ Slavoj Boleráz, muži v sezóne ${s.label}${s.place ? `: ${s.place.league}, ${s.place.place}` : ''}.`,
+      body: (R) => {
+        const i = arch.menSeasons.indexOf(s), newer = arch.menSeasons[i - 1], older = arch.menSeasons[i + 1];
+        return `${head(`Muži ${s.label}`, s.place ? `${esc(s.place.league)} · <b>${esc(s.place.place)}</b>` : '', R, [['archiv/', 'Archív'], [null, s.label]])}
+<section class="sec sec--first"><div class="wrap arch-season">
+  ${s.finals.map((f) => archBlocks([f], R)).join('')}
+  ${s.blocks.length ? archBlocks(s.blocks, R) : ''}
+  <nav class="arch-pager" aria-label="Ďalšie sezóny">${older ? `<a class="btn btn--ghost" href="${R}archiv/muzi/${older.key}/">${I.left}${esc(older.label)}</a>` : '<span></span>'}${newer ? `<a class="btn btn--ghost" href="${R}archiv/muzi/${newer.key}/">${esc(newer.label)}${I.right}</a>` : ''}</nav>
+  ${archSrc(R)}
+</div></section>`;
+      },
+    });
+  }
+}
+if (arch.stats.length) {
+  add('archiv/strelci/', {
+    title: 'Strelci od roku 1972', active: 'archiv/', desc: 'Večná štatistika gólov a štartov hráčov TJ Slavoj Boleráz od roku 1972.',
+    body: (R) => `${head('Strelci od roku 1972', esc(club.statistikyRozsah || ''), R, [['archiv/', 'Archív'], [null, 'Strelci']])}
+<section class="sec sec--first"><div class="wrap">
+  ${archNav(R, 'archiv/strelci/')}
+  <label class="find" data-find hidden><span>Hľadať hráča</span><input type="search" data-find-input aria-controls="stat-t" placeholder="napr. Daniš" autocomplete="off"></label>
+  <div class="tbl-wrap"><table class="tbl tbl--stats" id="stat-t"><thead><tr><th scope="col">#</th><th scope="col" class="tl">Hráč</th><th scope="col">Góly</th><th scope="col" class="hm">„A“</th><th scope="col" class="hm">„B“</th><th scope="col">Štarty</th><th scope="col" class="hm">„A“</th><th scope="col" class="hm">„B“</th><th scope="col" class="tl hl">Prvý štart</th><th scope="col" class="tl hl">Prvý gól</th></tr></thead>
+  <tbody>${arch.stats.map((s) => `<tr data-name="${esc(norm(s.name))}"><td class="pos">${s.n}</td><th scope="row" class="tl">${esc(s.name)}</th><td class="pts">${s.goals}</td><td class="hm">${s.goalsA}</td><td class="hm">${s.goalsB}</td><td>${s.apps}</td><td class="hm">${s.appsA}</td><td class="hm">${s.appsB}</td><td class="tl hl">${esc(s.firstApp)}</td><td class="tl hl">${esc(s.firstGoal)}</td></tr>`).join('')}</tbody></table></div>
+  <p class="empty" data-find-empty hidden>Hráč s takým menom v štatistike nie je.</p>
+  ${archSrc(R)}
+</div></section>`,
+  });
+}
+if (arch.youth.length) {
+  add('archiv/mladez/', {
+    title: 'Archív mládeže', active: 'archiv/', desc: 'Archív mládeže TJ Slavoj Boleráz: dorast, žiaci a prípravka.',
+    body: (R) => `${head('Mládež v archíve', 'Dorast, žiaci a prípravka podľa starého webu klubu.', R, [['archiv/', 'Archív'], [null, 'Mládež']])}
+<section class="sec sec--first"><div class="wrap">
+  ${archNav(R, 'archiv/mladez/')}
+  ${arch.youth.map((y) => `<section class="arch-y" aria-labelledby="y-${y.slug}"><h2 class="title title--s" id="y-${y.slug}">${esc(y.name)}</h2>
+    ${y.intro.length ? `<div class="arch-season">${archBlocks(y.intro, R)}</div>` : ''}
+    ${y.seasons.length ? `<p class="arch-links">${y.seasons.map((s) => `<a class="chip" href="${R}archiv/mladez/${y.slug}-${s.key}/">${esc(s.label)}</a>`).join('')}</p>` : ''}
+  </section>`).join('')}
+  ${archSrc(R)}
+</div></section>`,
+  });
+  for (const y of arch.youth) for (const s of y.seasons) {
+    add(`archiv/mladez/${y.slug}-${s.key}/`, {
+      title: `${y.name} ${s.label}`, active: 'archiv/', desc: `TJ Slavoj Boleráz, ${y.name.toLowerCase()} v sezóne ${s.label}.`,
+      body: (R) => `${head(`${y.name} ${s.label}`, '', R, [['archiv/', 'Archív'], ['archiv/mladez/', 'Mládež'], [null, s.label]])}
+<section class="sec sec--first"><div class="wrap arch-season">${archBlocks(s.blocks, R)}${archSrc(R)}</div></section>`,
+    });
+  }
+}
+if (arch.cups.length) {
+  add('archiv/slavoj-cup/', {
+    title: 'Slavoj Cup', active: 'archiv/', desc: 'Slavoj Cup – turnaj prípraviek v Boleráze, ročníky 2015 až 2019.',
+    body: (R) => `${head('Slavoj Cup', 'Turnaj prípraviek v Boleráze.', R, [['archiv/', 'Archív'], [null, 'Slavoj Cup']])}
+<section class="sec sec--first"><div class="wrap">
+  ${archNav(R, 'archiv/slavoj-cup/')}
+  <ul class="tiles">${arch.cups.map((c) => `<li><a class="tile" href="${R}archiv/slavoj-cup/${c.year}/"><span class="tile-n">${esc(c.year)}</span><span class="tile-s">Slavoj Cup</span></a></li>`).join('')}</ul>
+  ${archSrc(R)}
+</div></section>`,
+  });
+  for (const c of arch.cups) {
+    add(`archiv/slavoj-cup/${c.year}/`, {
+      title: c.title, active: 'archiv/', desc: `${c.title} – turnaj prípraviek v Boleráze.`,
+      body: (R) => `${head(c.title, 'Turnaj prípraviek v Boleráze', R, [['archiv/', 'Archív'], ['archiv/slavoj-cup/', 'Slavoj Cup'], [null, c.year]])}
+<section class="sec sec--first"><div class="wrap arch-season">${archBlocks(c.blocks, R)}${archSrc(R)}</div></section>`,
+    });
+  }
+}
 
 add('ochrana-sukromia/', {
   title: 'Ochrana súkromia', desc: 'Ako web pracuje s údajmi.',
@@ -560,7 +667,7 @@ copy(path.join(SRC, 'js'), path.join(OUT, 'js'));
 if (config.adminDemo !== false && fs.existsSync(path.join(SRC, 'admin', 'index.html'))) { copy(path.join(SRC, 'admin'), path.join(OUT, 'admin')); writeAdminDemo(); }
 fs.rmSync(path.join(OUT, 'fonts', 'fonts.css'), { force: true });
 fs.mkdirSync(path.join(OUT, 'css'), { recursive: true });
-fs.writeFileSync(path.join(OUT, 'css', 'site.css'), fs.readFileSync(path.join(SRC, 'fonts', 'fonts.css'), 'utf8').replace(/url\(([^)]+)\)/g, 'url(../fonts/$1)') + fs.readFileSync(path.join(SRC, 'css', 'site.css'), 'utf8'));
+fs.writeFileSync(path.join(OUT, 'css', 'site.css'), fs.readFileSync(path.join(SRC, 'fonts', 'fonts.css'), 'utf8').replace(/url\(([^)]+)\)/g, 'url(../fonts/$1)') + ['site.css', 'archiv.css'].map((f) => fs.readFileSync(path.join(SRC, 'css', f), 'utf8')).join('\n'));
 for (const p of pages) {
   const depth = p.route.split('/').filter(Boolean).length;
   const R = depth ? '../'.repeat(depth) : './';
