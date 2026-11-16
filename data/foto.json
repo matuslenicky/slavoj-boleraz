@@ -1,0 +1,43 @@
+{
+  "_pozn": "Výber fotiek z Instagramu klubu (@slavojboleraz). Zdroje v media/ig/<kód>/<n>.jpg (scripts/ig-download.mjs), spracuje scripts/photos.py -> src/img/foto + data/foto-out.json. fx/fy = ťažisko výrezu (0–1).",
+  "albums": [
+    {
+      "slug": "osemfinale-slovnaft-cup-skalica",
+      "title": "Osemfinále Slovnaft Cupu so Skalicou",
+      "date": "2026-11-04",
+      "src": "DfU-9qbDffu",
+      "files": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+      "ig": "https://www.instagram.com/slavojboleraz/p/DfU-9qbDffu/",
+      "credit": "@world._.through._.lenses",
+      "text": "Pár momentov z osemfinále."
+    },
+    {
+      "slug": "zaver-jesene",
+      "title": "Záver jesene",
+      "date": "2026-11-09",
+      "src": "DfiBdnsjbUd",
+      "files": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+      "ig": "https://www.instagram.com/slavojboleraz/p/DfiBdnsjbUd/",
+      "credit": "",
+      "text": "Je pred nami posledný týždeň jesennej časti."
+    }
+  ],
+  "named": {
+    "hero": { "src": "DfU-9qbDffu/6", "alt": "Dvaja hráči Slavoja v sivých dresoch oslavujú gól, jeden zdvíha päsť", "fx": 0.68, "fy": 0.35 },
+    "kruh": { "src": "DfU-9qbDffu/1", "alt": "Hráči Slavoja v kruhu na ihrisku pred zápasom", "fx": 0.5, "fy": 0.55 },
+    "brankar": { "src": "DfiBdnsjbUd/1", "alt": "Brankár Slavoja v oranžovom drese s loptou v rukách pred bránou", "fx": 0.45, "fy": 0.5 },
+    "tribuna": { "src": "DfU-9qbDffu/12", "alt": "Hráč Slavoja s loptou pred tribúnou s divákmi", "fx": 0.68, "fy": 0.5 }
+  },
+  "cards": [
+    { "src": "DfU-9qbDffu/6", "fx": 0.7, "fy": 0.4 },
+    { "src": "DfU-9qbDffu/5", "fx": 0.55, "fy": 0.4 },
+    { "src": "DfU-9qbDffu/12", "fx": 0.75, "fy": 0.45 },
+    { "src": "DfiBdnsjbUd/1", "fx": 0.47, "fy": 0.5 },
+    { "src": "DfU-9qbDffu/7", "fx": 0.4, "fy": 0.5 },
+    { "src": "DfU-9qbDffu/11", "fx": 0.55, "fy": 0.5 },
+    { "src": "DfiBdnsjbUd/2", "fx": 0.4, "fy": 0.45 },
+    { "src": "DfU-9qbDffu/4", "fx": 0.45, "fy": 0.5 }
+  ],
+  "posts": ["DfueEaINEmo", "Dftz4OFNaht", "DfrC_YLDZZ4", "DfiBdnsjbUd", "Dfcd_Ykt1Wh", "DfboZ0stFNb", "DfU-9qbDffu"],
+  "reels": ["reel/DVMDseljZg0", "reel/DfFo7m6tng2", "reel/DbasjW9tZQj", "reel/DfeV89MNwH1"]
+}

@@ -1,0 +1,5 @@
+dist/
+.pages/
+media/
+node_modules/
+__pycache__/

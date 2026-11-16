@@ -1,0 +1,11 @@
+{
+  "_pozn": "Verejná konfigurácia webu. Kľúč Supabase je publishable (verejný), zápis chráni RLS.",
+  "siteUrl": "",
+  "basePath": "/",
+  "noindex": true,
+  "ukazka": true,
+  "_ukazka": "true = pás „Návrh webu, nie oficiálna stránka klubu“ (verejná ukážka); pri ostrom spustení dať false",
+  "adminDemo": true,
+  "sportnet": { "appSpace": "tj-slavoj-boleraz.futbalnet.sk", "club": "slavoj-boleraz", "teams": {} },
+  "supabase": { "url": null, "key": null }
+}

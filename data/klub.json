@@ -1,0 +1,63 @@
+{
+  "_zdroj": "Len zo zverejnených zdrojov: Sportnet (kontakt, fakturačné údaje, ihrisko), starý web slavojboleraz.webnode.sk (Kontakt, História), web obce Boleráz (Vedenie klubu, Z histórie klubu), Instagram @slavojboleraz. Nič nedopĺňať odhadom.",
+  "nazov": "TJ Slavoj Boleráz",
+  "kratky": "Slavoj Boleráz",
+  "obec": "Boleráz",
+  "zalozenie": 1928,
+  "adresa": ["Slavoj, Boleráz 458", "919 08 Boleráz"],
+  "ico": "00688649",
+  "ucet": "SK56 0900 0000 0000 4554 9128",
+  "instagram": "https://www.instagram.com/slavojboleraz/",
+  "instagramHandle": "slavojboleraz",
+  "instagramBio": "Oficiálny instagramový profil TJ Slavoj Boleráz",
+  "staryWeb": "https://slavojboleraz.webnode.sk/",
+  "sportnetUrl": "https://sportnet.sme.sk/futbalnet/k/tj-slavoj-boleraz/",
+  "kontakty": [
+    { "funkcia": "Predseda klubu", "meno": "Ing. Ľubomír Krišica", "telefon": "0903 793 144" },
+    { "funkcia": "Tajomník klubu", "meno": "Juraj Královič st.", "telefon": "0908 770 988", "email": "tjslavojboleraz@gmail.com" }
+  ],
+  "_kontakty": "starý web, stránka Kontakt; e-mail klubu aj zo Sportnetu",
+  "vedenie": [
+    ["Predseda", "Ing. Ľubomír Krišica"],
+    ["Podpredseda", "Mgr. Pavol Kitta"],
+    ["Manažér klubu", "Roman Vavro"],
+    ["Tajomník", "Juraj Královič"],
+    ["Pokladník", "Jozef Demovič"],
+    ["Revízna komisia", "Jaroslav Cintavý, Miroslav Buček, Štefan Tanáč"],
+    ["Členovia výkonného výboru", "Vladimír Miklošovič, Emil Kitta, Marek Daniš"]
+  ],
+  "_vedenie": "web obce Boleráz, TJ Slavoj Boleráz – Vedenie klubu",
+  "ihrisko": {
+    "nazov": "Futbalové ihrisko TJ Slavoj Boleráz",
+    "adresa": "Boleráz 458, 919 08 Boleráz",
+    "geo": [48.4636714, 17.4907556],
+    "_zdroj": "Sportnet (ihrisko „Slavoj Boleráz“); vybavenie z textu histórie: bariérový múr, zábradlie okolo hracej plochy, lavičky, detské a basketbalové ihrisko"
+  },
+  "historiaZdroj": "Text histórie klubu zo stránky obce Boleráz a zo starého webu klubu (História).",
+  "historiaUvod": "Za rok vzniku TJ Slavoj Boleráz sa považuje rok 1928, v roku 2018 klub oslávil 90. výročie založenia. Úradne vznikol športový klub 14. júla 1931 a jeho stanovy schválil Krajinský úrad v Bratislave 28. novembra 1932.",
+  "historiaMilniky": [
+    { "rok": "1927", "text": "Akcionári škrobárne si v areáli závodu zriadili tenisové ihrisko, približne vtedy začali technickí pracovníci hrať futbal." },
+    { "rok": "1928", "text": "Futbal sa hrá na provizórnom ihrisku pri kostole. Zopár chlapcov sa zložilo na loptu a vzniklo prvé mužstvo." },
+    { "rok": "1929 – 30", "text": "Z peňazí z podomových zbierok si hráči kúpili zeleno-biele dresy." },
+    { "rok": "1932", "text": "V tridsiatich stretnutiach 28 výhier." },
+    { "rok": "1980 – 84", "text": "Pod trénerom Jozefom Frankom postup z III. triedy do I. A triedy." },
+    { "rok": "2018", "text": "90. výročie založenia klubu." }
+  ],
+  "historiaOdseky": [
+    "Počiatky športového života v Boleráze siahajú do roku 1927, keď si akcionári škrobárne v areáli závodu zriadili pre chvíle relaxácie tenisové ihrisko. Približne v tom období začali technickí pracovníci hrať futbal. V roku 1928 sa futbal hrával už aj na provizórnom ihrisku pri kostole. Ferdinand Loskot, zámočnícky učeň, Ján Banci a Jozef Hluch – pekárski učni mali v tom čase bicykle a na nich navštevovali zápasy v Trnave. Zopár chlapcov sa zložilo na loptu a tak vzniklo prvé mužstvo.",
+    "Keď sa hra technicky zvládla a zladila, na návrh montérov z fabriky si bolerázski futbalisti dojednali športové stretnutie s ŠK Neštich, kde hrali aj hráči zo Smoleníc. Pred zápasom museli obe jedenástky zložiť po 2 koruny s vedomím, že suma 44 korún pripadne víťazovi. Boleráz vyhral 4:0. O týždeň hral Boleráz s hráčmi Coburg Trnava. Dopadlo to tak, že víťazstvo a zložené peniaze putovali do Trnavy.",
+    "Pred futbalovými sezónami v rokoch 1929 a 1930 zorganizovali hráči podomové finančné zbierky. Z takto získaných peňazí sa kúpili zeleno-biele dresy a ostatná základná výstroj. Kým v roku 1929 zo štrnástich zápasov vyhrali dva, jeden remizovali a zvyšok prehrali, v roku 1932 v tridsiatich stretnutiach zaznamenali 28 výhier.",
+    "Obdobie druhej svetovej vojny neprialo rozvoju futbalu. Po oslobodení sa športový klub obnovil a Pavol Danišovič, Emil Banci a Alojz Černý začali s formovaním nového hráčskeho kolektívu.",
+    "V rokoch 1980 – 84 hráčov trénoval (aj hral) Jozef Franek. Vtedy postúpili z III. triedy do I. A. Postupne sa realizovali aj práce súvisiace s dobudovaním športového areálu, oplotením celého komplexu, vytvorením detského a basketbalového ihriska a ďalšie zdokonalenia. V osemdesiatych rokoch pribudol bariérový múr, zábradlie okolo hracej plochy, lavičky a postavili aj garáž pre autobus."
+  ],
+  "sutaze": {
+    "Majstrovstvá regiónu - IV. liga Macron | yoursport ZsFZ": "IV. liga – Majstrovstvá regiónu",
+    "IX. liga-MEVA-ObFZ TT": "IX. liga ObFZ Trnava",
+    "IV. liga-Žiaci-U15-ObFZ TT": "IV. liga starších žiakov ObFZ Trnava",
+    "IV. liga-MŽ-U13-sk.B-ObFZ TT": "IV. liga mladších žiakov ObFZ Trnava",
+    "Prípravka-U11-sk.B-ObFZ TT": "Prípravka U11 ObFZ Trnava",
+    "Prípravka-U9-ObFZ TT": "Prípravka U9 ObFZ Trnava",
+    "Slovnaft Cup": "Slovnaft Cup",
+    "BESTRENT CUP  ObFZ Trnava": "Pohár ObFZ Trnava"
+  }
+}
