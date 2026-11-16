@@ -417,16 +417,18 @@ a.row-in:hover .r-opp { text-decoration: underline; }
 .arch-season > p { max-width: 70ch; }
 .arch-tbl { margin: 0 0 28px; }
 .tbl caption { caption-side: top; text-align: left; padding: 0 0 10px; font: italic 900 1.5rem/1.05 var(--cond); text-transform: uppercase; color: var(--navy); }
-.tbl--list td { text-align: left; padding-top: 6px; padding-bottom: 6px; }
+.tbl--list td, .tbl--list thead th { text-align: left; }
+.tbl--list td { padding-top: 6px; padding-bottom: 6px; }
 @media (min-width: 760px) { .arch-tbl:has(.tbl--list) { max-width: 520px; } }
-.tbl--list td:first-child { width: 1%; white-space: nowrap; color: var(--muted); font-weight: 600; }
+.tbl--list td.k { width: 1%; white-space: nowrap; color: var(--muted); font-weight: 600; }
 .tbl--list tbody tr + tr { border-top: 1px solid var(--line); }
 .arch-sub { font: italic 900 1.5rem/1.05 var(--cond); text-transform: uppercase; color: var(--navy); margin: 32px 0 12px; }
 .arch-match { padding: 14px 16px; margin: 0 0 10px; border-radius: 6px; background: var(--ice); }
 .am-h { font: 800 .8125rem/1.3 var(--text); text-transform: uppercase; letter-spacing: .06em; color: var(--steel); margin: 0 0 4px; }
 .am-score { font-weight: 800; font-size: 1.0625rem; margin: 0 0 6px; color: var(--navy); }
-.am-l { margin: 0 0 4px; font-size: .9375rem; }
-.am-l b { display: inline-block; min-width: 58px; color: var(--muted); font-weight: 600; }
+.am-l { display: grid; grid-template-columns: 4.75rem minmax(0, 1fr); column-gap: 8px; margin: 0 0 4px; font-size: .9375rem; overflow-wrap: anywhere; }
+.am-l b { color: var(--muted); font-weight: 600; }
+.am-l--t { display: block; }
 .arch-fig { margin: 0 0 24px; }
 .arch-fig img { border-radius: 6px; }
 .arch-pager { display: flex; justify-content: space-between; gap: 12px; margin: 32px 0 8px; }
@@ -438,6 +440,8 @@ a.row-in:hover .r-opp { text-decoration: underline; }
 .find input:focus-visible { border-color: var(--navy); outline: 3px solid var(--steel); outline-offset: 2px; }
 .tbl--stats { font-size: .875rem; }
 .tbl--stats th.tl { font-weight: 700; white-space: nowrap; }
+@media (max-width: 379.98px) { .tbl--stats th.tl { white-space: normal; } }
+.find-st:empty { margin: 0; }
 .tbl--stats .hl { color: var(--muted); font-size: .8125rem; min-width: 170px; }
 @media (max-width: 899.98px) { .tbl--stats .hl { display: none; } }
 .gal--tall img { aspect-ratio: 3 / 4; object-position: top; }

@@ -64,12 +64,17 @@ if (galleries.length && 'HTMLDialogElement' in window) {
 const find = $('[data-find]');
 if (find) {
   find.hidden = false;
-  const input = $('[data-find-input]', find), statRows = $$('#stat-t tbody tr'), empty = $('[data-find-empty]');
+  const input = $('[data-find-input]', find), statRows = $$('#stat-t tbody tr'), status = $('[data-find-empty]');
   const plain = (s) => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
   input.addEventListener('input', () => {
-    const q = plain(input.value.trim()).replace(/\s+/g, '-');
+    // každé slovo zvlášť: „Daniš Marek“ aj „Marek Daniš“, interpunkcia nevadí
+    const words = plain(input.value).split(/[^a-z0-9]+/).filter(Boolean);
     let n = 0;
-    for (const r of statRows) { const show = !q || r.dataset.name.includes(q); r.hidden = !show; if (show) n++; }
-    if (empty) empty.hidden = n > 0;
+    for (const r of statRows) { const show = words.every((w) => r.dataset.name.includes(w)); r.hidden = !show; if (show) n++; }
+    // živá hláška (role="status"): prázdny výsledok viditeľne, počet nájdených len pre čítačku
+    status.textContent = !words.length ? '' : n ? `Počet nájdených hráčov: ${n}` : 'Hráč s takým menom v štatistike nie je.';
+    status.classList.toggle('sr', n > 0);
   });
+  // Enter na klávesnici telefónu: schovať klávesnicu, nech je výsledok vidieť
+  input.addEventListener('keydown', (e) => { if (e.key === 'Enter') input.blur(); });
 }
