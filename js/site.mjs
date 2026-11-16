@@ -59,3 +59,17 @@ if (galleries.length && 'HTMLDialogElement' in window) {
   dlg.addEventListener('touchstart', (e) => { x0 = e.touches[0].clientX; }, { passive: true });
   dlg.addEventListener('touchend', (e) => { if (x0 == null) return; const dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 50) go(dx < 0 ? 1 : -1); x0 = null; });
 }
+
+// ---- hľadanie hráča vo večnej štatistike ----
+const find = $('[data-find]');
+if (find) {
+  find.hidden = false;
+  const input = $('[data-find-input]', find), statRows = $$('#stat-t tbody tr'), empty = $('[data-find-empty]');
+  const plain = (s) => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+  input.addEventListener('input', () => {
+    const q = plain(input.value.trim()).replace(/\s+/g, '-');
+    let n = 0;
+    for (const r of statRows) { const show = !q || r.dataset.name.includes(q); r.hidden = !show; if (show) n++; }
+    if (empty) empty.hidden = n > 0;
+  });
+}

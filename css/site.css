@@ -395,3 +395,49 @@ a.row-in:hover .r-opp { text-decoration: underline; }
   .hero-shade { background: linear-gradient(180deg, rgba(6, 26, 51, .1) 0%, rgba(6, 26, 51, .2) min(40vw, 190px), rgba(6, 26, 51, .88) min(100vw, 480px), var(--abyss) min(125vw, 600px)); }
   .hero-in { padding-top: min(78vw, 380px); }
 }
+
+/* ---- archív zo starého webu (pripája sa za site.css) ---- */
+.chip[aria-current="page"] { background: var(--navy); border-color: var(--navy); color: #fff; }
+@media (min-width: 1000px) and (max-width: 1279.98px) {
+  .igbtn span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .igbtn { width: 44px; padding: 0; justify-content: center; }
+  .topnav a { padding: 10px 9px; }
+}
+.arch-top { display: grid; gap: 40px; }
+@media (min-width: 960px) { .arch-top { grid-template-columns: minmax(0, 1fr) 340px; gap: 64px; align-items: start; } .arch-side { position: sticky; top: calc(var(--top-h) + 20px); } }
+.arch-top .title { margin-bottom: 16px; }
+.tbl--seasons th a { font-weight: 800; display: block; padding: 12px 0; margin: -12px 0; }
+.tbl--seasons tr.our a { color: #fff; }
+.tbl--seasons td.tl { font-weight: 400; }
+.arch-titles { padding: 20px; border-radius: 6px; background: var(--navy); color: #fff; margin-bottom: 28px; }
+.at-n { margin: 0; font: italic 900 4.4rem/.85 var(--cond); color: var(--sky); }
+.at-l { margin: 4px 0 10px; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; font-size: .8125rem; }
+.at-y { margin: 0; color: var(--frost); font-size: .9375rem; }
+.arch-season { max-width: 860px; }
+.arch-season > p { max-width: 70ch; }
+.arch-tbl { margin: 0 0 28px; }
+.tbl caption { caption-side: top; text-align: left; padding: 0 0 10px; font: italic 900 1.5rem/1.05 var(--cond); text-transform: uppercase; color: var(--navy); }
+.tbl--list td { text-align: left; padding-top: 6px; padding-bottom: 6px; }
+@media (min-width: 760px) { .arch-tbl:has(.tbl--list) { max-width: 520px; } }
+.tbl--list td:first-child { width: 1%; white-space: nowrap; color: var(--muted); font-weight: 600; }
+.tbl--list tbody tr + tr { border-top: 1px solid var(--line); }
+.arch-sub { font: italic 900 1.5rem/1.05 var(--cond); text-transform: uppercase; color: var(--navy); margin: 32px 0 12px; }
+.arch-match { padding: 14px 16px; margin: 0 0 10px; border-radius: 6px; background: var(--ice); }
+.am-h { font: 800 .8125rem/1.3 var(--text); text-transform: uppercase; letter-spacing: .06em; color: var(--steel); margin: 0 0 4px; }
+.am-score { font-weight: 800; font-size: 1.0625rem; margin: 0 0 6px; color: var(--navy); }
+.am-l { margin: 0 0 4px; font-size: .9375rem; }
+.am-l b { display: inline-block; min-width: 58px; color: var(--muted); font-weight: 600; }
+.arch-fig { margin: 0 0 24px; }
+.arch-fig img { border-radius: 6px; }
+.arch-pager { display: flex; justify-content: space-between; gap: 12px; margin: 32px 0 8px; }
+.arch-y { margin-bottom: 40px; }
+.arch-y .title { margin-bottom: 14px; }
+.arch-links { display: flex; flex-wrap: wrap; gap: 8px; }
+.find { display: flex; flex-direction: column; gap: 6px; max-width: 360px; margin: 0 0 20px; font-weight: 800; font-size: .875rem; color: var(--navy); }
+.find input { min-height: 48px; padding: 10px 16px; border: 2px solid var(--line); border-radius: 999px; font: 400 1rem var(--text); color: var(--ink); background: var(--paper); }
+.find input:focus-visible { border-color: var(--navy); outline: 3px solid var(--steel); outline-offset: 2px; }
+.tbl--stats { font-size: .875rem; }
+.tbl--stats th.tl { font-weight: 700; white-space: nowrap; }
+.tbl--stats .hl { color: var(--muted); font-size: .8125rem; min-width: 170px; }
+@media (max-width: 899.98px) { .tbl--stats .hl { display: none; } }
+.gal--tall img { aspect-ratio: 3 / 4; object-position: top; }
