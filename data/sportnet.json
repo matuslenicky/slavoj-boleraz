@@ -2,7 +2,7 @@
  "source": "Sportnet / Futbalnet",
  "appSpace": "tj-slavoj-boleraz.futbalnet.sk",
  "season": "2026/2027",
- "updated": "2026-11-16T14:41:36.698Z",
+ "updated": "2026-11-17T15:37:49.489Z",
  "teams": [
   {
    "slug": "a-muzstvo",
@@ -5586,7 +5586,7 @@
      "min": "90",
      "player": "Alex Karhan",
      "side": "our",
-     "kind": "goal"
+     "kind": "own"
     }
    ],
    "cards": [
@@ -6128,7 +6128,7 @@
      "min": "86",
      "player": "Aiver Skorokhod",
      "side": "opp",
-     "kind": "goal"
+     "kind": "own"
     }
    ],
    "cards": [],
@@ -9446,7 +9446,7 @@
      "min": "18",
      "player": "Oliver Bacák",
      "side": "our",
-     "kind": "goal"
+     "kind": "own"
     },
     {
      "min": "22",
@@ -11230,7 +11230,7 @@
    "competition": "Slovnaft Cup",
    "round": "4.kolo",
    "played": true,
-   "score": "2:1",
+   "score": "1:1",
    "goals": [
     {
      "min": "69",
@@ -11673,7 +11673,7 @@
      "min": "48",
      "player": "Sofia Kotásková",
      "side": "opp",
-     "kind": "goal"
+     "kind": "own"
     },
     {
      "min": "58",
@@ -11867,7 +11867,7 @@
      "min": "28",
      "player": "Dušan Stano",
      "side": "our",
-     "kind": "goal"
+     "kind": "own"
     },
     {
      "min": "42",
@@ -13483,7 +13483,7 @@
      "min": "20",
      "player": "Filip Vittek",
      "side": "opp",
-     "kind": "goal"
+     "kind": "own"
     },
     {
      "min": "43",
@@ -14756,7 +14756,7 @@
      "min": "67",
      "player": "Matúš Škultéty",
      "side": "opp",
-     "kind": "goal"
+     "kind": "own"
     }
    ],
    "cards": [
