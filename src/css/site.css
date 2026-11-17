@@ -168,25 +168,34 @@ a.card:focus-visible { outline: 3px solid var(--sky); outline-offset: 3px; }
 @media (min-width: 1000px) { .feed { grid-auto-flow: row; grid-template-columns: repeat(5, 1fr); grid-auto-columns: auto; overflow: visible; margin: 0; padding: 0; } }
 
 /* ---- zoznam zápasov ---- */
+/* zoznam zápasov ako Instagram klubu: pásy MATCH DAY a štvorcové príspevky FULLTIME */
 .rows { list-style: none; margin: 0; padding: 0; }
-.row + .row { border-top: 1px solid var(--line); }
-.row-in { display: grid; grid-template-columns: 50px 30px minmax(0, 1fr) auto; align-items: center; gap: 12px; padding: 11px 4px; min-height: 60px; color: var(--ink); text-decoration: none; }
-a.row-in:hover { background: rgba(34, 99, 156, .06); }
-a.row-in:hover .r-opp { text-decoration: underline; }
-.r-date { display: flex; flex-direction: column; font-size: .8125rem; color: var(--muted); line-height: 1.15; white-space: nowrap; }
-.r-date b { font-size: .9375rem; color: var(--ink); }
-.row .crest { width: 30px; height: 30px; object-fit: contain; }
-.crest--txt { display: inline-grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: var(--ice); color: var(--navy); font: italic 900 .85rem/1 var(--cond); }
-.r-main { display: flex; flex-direction: column; min-width: 0; }
-.r-opp { font-weight: 800; line-height: 1.25; overflow-wrap: anywhere; }
-.r-sub { font-size: .8125rem; color: var(--muted); }
-.r-sub b { color: var(--steel); }
-.r-score, .r-time { min-width: 54px; padding: 6px 8px; border-radius: 999px; text-align: center; font: italic 900 1.2rem/1 var(--cond); }
-.r-score--w { background: var(--navy); color: #fff; }
-.r-score--d { background: var(--frost); color: var(--navy); }
-.r-score--l { background: #fbe4e3; color: #9c2520; }
-.r-score--none { color: var(--muted); }
-.r-time { box-shadow: inset 0 0 0 2px var(--navy); color: var(--navy); }
+.rows--md { display: grid; gap: 8px; }
+.md { display: grid; grid-template-columns: 78px minmax(0, 1fr) 34px; align-items: center; gap: 12px; padding: 10px 12px 10px 14px; border-radius: 14px; background: linear-gradient(100deg, var(--abyss), var(--navy) 70%, var(--steel)); color: #fff; text-decoration: none; }
+a.md:hover .md-o { text-decoration: underline; text-decoration-color: var(--sky); }
+.md-d { display: flex; flex-direction: column; line-height: 1; }
+.md-d b { font: italic 900 1.7rem/1 var(--cond); }
+.md-d span { margin-top: 3px; font-size: .75rem; color: var(--sky); text-transform: uppercase; }
+.md-b { display: flex; flex-direction: column; min-width: 0; }
+.md-tag { align-self: flex-start; padding: 1px 7px 0; border-radius: 999px; background: var(--sky); color: var(--abyss); font: italic 900 .75rem/1.4 var(--cond); letter-spacing: .08em; text-transform: uppercase; }
+.md-o { margin-top: 3px; font: 800 1.05rem/1.2 var(--text); overflow-wrap: anywhere; }
+.md-k { font-size: .75rem; color: var(--frost); }
+.md .crest { width: 34px; height: 34px; object-fit: contain; border-radius: 50%; background: #fff; padding: 3px; }
+.rows--ft { display: grid; gap: 8px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (min-width: 640px) { .rows--ft { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.ft { position: relative; display: flex; flex-direction: column; aspect-ratio: 1; padding: 12px; border-radius: 10px; background: radial-gradient(120% 90% at 100% 0%, var(--steel), var(--navy) 55%, var(--abyss)); color: #fff; text-decoration: none; overflow: hidden; }
+.ft--l { background: radial-gradient(120% 90% at 100% 0%, #3d4f68, #1b2a40 55%, #0e1726); }
+.ft--d { background: radial-gradient(120% 90% at 100% 0%, #3c6f9f, #26496d 60%, #142a42); }
+.ft--n { background: #344155; }
+a.ft:hover { box-shadow: 0 0 0 3px var(--sky); }
+.ft-tag { font: italic 900 .875rem/1 var(--cond); letter-spacing: .1em; text-transform: uppercase; color: var(--sky); }
+.ft-s { margin: auto 0 6px; font: italic 900 2.6rem/.9 var(--cond); }
+.ft-o { display: flex; align-items: center; gap: 6px; font-size: .8125rem; font-weight: 800; line-height: 1.15; min-width: 0; }
+.ft-o span { overflow-wrap: anywhere; min-width: 0; }
+.ft-o .crest { width: 22px; height: 22px; flex: none; object-fit: contain; border-radius: 50%; background: #fff; padding: 2px; }
+.ft-k { margin-top: 4px; font-size: .6875rem; color: var(--frost); }
+.md .crest--txt, .ft-o .crest--txt { display: grid; place-items: center; color: var(--navy); font: italic 900 .8125rem/1 var(--cond); }
+.ft-o .crest--txt { font-size: .625rem; }
 .month + .month { margin-top: 26px; }
 .month-h { font: 800 .8125rem/1.2 var(--text); text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin-bottom: 4px; }
 .two--list .title { margin-bottom: 16px; }

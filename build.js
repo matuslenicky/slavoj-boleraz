@@ -238,18 +238,26 @@ function card(m, R, { size = 'm', photo: usePhoto = m.team === A.slug, eager = f
 }
 
 // riadok zápasu
+// zoznam zápasov v štýle Instagramu klubu: program ako pásy „MATCH DAY“, výsledky ako štvorcové príspevky „FULLTIME“
 function row(m, R, { team = true } = {}) {
-  const right = m.score ? `<span class="r-score r-score--${m.res}"><span class="sr">${RES[m.res]} </span>${esc(m.score)}</span>`
-    : m.past ? '<span class="r-score r-score--none">–</span>' : `<span class="r-time">${esc(m.time)}</span>`;
   const link = m.detail || !m.past;
-  return `<li class="row" data-team="${m.team}" data-where="${m.home ? 'doma' : 'vonku'}"><${link ? `a href="${R}${m.url}"` : 'div'} class="row-in">
-  <span class="r-date"><b>${dNum(m.date)}</b>${DAYS[dObj(m.date).getUTCDay()].slice(0, 2)}</span>
-  ${crest(m.oppSpace, m.opponent, R, 30)}
-  <span class="r-main"><span class="r-opp">${esc(m.opponent)}</span><span class="r-sub">${team ? `<b>${esc(m.teamObj.short)}</b> · ` : ''}${m.home ? 'doma' : 'vonku'} · ${esc(m.cup ? m.comp : m.roundName)}</span></span>
-  ${right}
-</${link ? 'a' : 'div'}></li>`;
+  const open = link ? `a href="${R}${m.url}"` : 'div', close = link ? 'a' : 'div';
+  const sub = `${team ? `${esc(m.teamObj.short)} · ` : ''}${m.home ? 'doma' : 'vonku'} · ${esc(m.cup ? m.comp : m.roundName)}`;
+  if (!m.past) {
+    return `<li class="row row--md" data-team="${m.team}" data-where="${m.home ? 'doma' : 'vonku'}"><${open} class="md">
+  <span class="md-d"><b>${dNum(m.date)}</b><span>${DAYS[dObj(m.date).getUTCDay()].slice(0, 2)} · ${esc(m.time || '–')}</span></span>
+  <span class="md-b"><span class="md-tag">Match day</span><span class="md-o">${esc(m.opponent)}</span><span class="md-k">${sub}</span></span>
+  ${crest(m.oppSpace, m.opponent, R, 34)}
+</${close}></li>`;
+  }
+  return `<li class="row row--ft" data-team="${m.team}" data-where="${m.home ? 'doma' : 'vonku'}"><${open} class="ft ft--${m.res || 'n'}">
+  <span class="ft-tag">${m.score ? 'Fulltime' : 'Odohrané'}</span>
+  <span class="ft-s">${m.score ? `<span class="sr">${RES[m.res]}, </span>${esc(m.score)}` : '–'}</span>
+  <span class="ft-o">${crest(m.oppSpace, m.opponent, R, 22)}<span>${esc(m.opponent)}</span></span>
+  <span class="ft-k">${dNum(m.date)} · ${sub}</span>
+</${close}></li>`;
 }
-const rows = (list, R, o) => `<ol class="rows">${list.map((m) => row(m, R, o)).join('')}</ol>`;
+const rows = (list, R, o) => `<ol class="rows ${list.length && list.every((m) => m.past) ? 'rows--ft' : 'rows--md'}">${list.map((m) => row(m, R, o)).join('')}</ol>`;
 
 function table(tb, R, { compact = false } = {}) {
   let list = tb.rows;
