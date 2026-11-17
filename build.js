@@ -63,7 +63,8 @@ const teams = sn.teams.map((t) => {
 });
 const bySlug = Object.fromEntries(teams.map((t) => [t.slug, t]));
 const A = teams[0];
-const matches = sn.matches.map((m) => {
+// kolá bez súpera (voľno) sa v zoznamoch nezobrazujú, inak by ostal prázdny riadok
+const matches = sn.matches.filter((m) => String(m.opponent || '').trim()).map((m) => {
   const t = bySlug[m.team];
   const past = m.played || m.date < TODAY;
   let gf = null, ga = null, res = null;
