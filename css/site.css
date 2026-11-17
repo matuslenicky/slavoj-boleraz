@@ -191,16 +191,19 @@ a.md:hover .md-o { text-decoration: underline; text-decoration-color: var(--sky)
 .rows--ft { display: grid; gap: 8px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
 @media (min-width: 640px) { .rows--ft { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 .ft { position: relative; display: flex; flex-direction: column; aspect-ratio: 1; padding: 12px; border-radius: 10px; background: radial-gradient(120% 90% at 100% 0%, var(--steel), var(--navy) 55%, var(--abyss)); color: #fff; text-decoration: none; overflow: hidden; }
+/* štvorec je len minimum: keď sa dlhý názov nezmestí (úzky telefón), dlaždica sa predĺži a susedné v riadku s ňou */
+.row--ft { display: grid; container-type: inline-size; }
+@supports (min-height: 1cqi) { .ft { aspect-ratio: auto; min-height: 100cqi; } }
 .ft--l { background: radial-gradient(120% 90% at 100% 0%, #3d4f68, #1b2a40 55%, #0e1726); }
 .ft--d { background: radial-gradient(120% 90% at 100% 0%, #3c6f9f, #26496d 60%, #142a42); }
 .ft--n { background: #344155; }
 a.ft:hover { box-shadow: 0 0 0 3px var(--sky); }
-.ft-tag { font: italic 900 .875rem/1 var(--cond); letter-spacing: .1em; text-transform: uppercase; color: var(--sky); }
+.ft-tag { margin-bottom: 8px; font: italic 900 .875rem/1 var(--cond); letter-spacing: .1em; text-transform: uppercase; color: var(--sky); }
 .ft-s { margin: auto 0 6px; font: italic 900 2.6rem/.9 var(--cond); }
 .ft-o { display: flex; align-items: center; gap: 6px; font-size: .8125rem; font-weight: 800; line-height: 1.15; min-width: 0; }
 .ft-o span { overflow-wrap: anywhere; min-width: 0; }
 .ft-o .crest { width: 22px; height: 22px; flex: none; object-fit: contain; border-radius: 50%; background: #fff; padding: 2px; }
-.ft-k { margin-top: 4px; font-size: .6875rem; color: var(--frost); }
+.ft-k { margin-top: 4px; font-size: .75rem; color: var(--frost); }
 .md .crest--txt, .ft-o .crest--txt { display: grid; place-items: center; color: var(--navy); font: italic 900 .8125rem/1 var(--cond); }
 .ft-o .crest--txt { font-size: .625rem; }
 .month + .month { margin-top: 26px; }
